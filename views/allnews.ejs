@@ -9,6 +9,7 @@
 <body>
 
    <h1>All news  :</h1>
+		<%if (news && news.length >0){ %>
 	<table>
 		 <tr>
     <th>Title</th>
@@ -25,7 +26,11 @@
 			<td><button><a href="/admin/editNews/<%= news[i]._id %>" >Edit</a></button></td>
 		 <td><button><a href="/admin/deleteNews/<%= news[i]._id %>" >Delete</a></button></td>
         </tr>
-     <% } %>
+     <% } %>  
     </table>
+	<% } else { %> <p>
+	No Record Found
+	</p>
+	<% } %>
 </body>
 </html>

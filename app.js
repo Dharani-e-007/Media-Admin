@@ -32,12 +32,5 @@ app.listen(Port,function(){
     console.log("Server is listenig on" , Port)
 })
 
-export const deleteNews = () =>{
-	  console.log("deleteNews Button Working!");
-}
 
 
-
-
-
- // <% for(var i=0; i < news.length; i++) { %> <tr> <td><%= news[i].title %></td> <td><%= news[i].description %></td> </tr> <% } %>

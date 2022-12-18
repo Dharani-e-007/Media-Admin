@@ -24,7 +24,7 @@ export let isAuthenticated =  (req, res, next)=> {
     if (token) {
         let result = verifyToken(token)
         if (result) {
-            next() // moving request to next function which is deletAccount
+            next() // moving request to next function
         }
         else {
             res.status(401).send({error:"Unauthorized"})
@@ -42,9 +42,6 @@ export const login = (req,res)=>{
          token = createToken({email:req.body.email})
         res.set("Auhtorization", token)
 		res.redirect("/admin/newsForm")
-		  // res.status(200).send({
-		  // message:"Login Success"
-		  // })
     }).catch((err)=>{
         res.status(500).send({error:"INVALID LOGIN"})
     })
@@ -77,9 +74,7 @@ export const allUsers  = (req,res) =>{
 
 export const addNews = (req,res)=>{
    createNews(req.body).then((result)=>{
-        res.status(200).send({
-            message:"news added successfully"
-        })
+        res.redirect("/admin/newsList")
    }).catch(()=>{
         res.status(500).send({
             error:"Internal Server Error"
@@ -92,9 +87,6 @@ export const newsList  = (req,res) =>{
 		res.render("allnews",{
 		news:result
     })
-        // res.status(200).send({
-        //    news:result
-        // })
     },()=>{
         res.status(500).send({
             error:"Internal Server Error"
@@ -105,9 +97,7 @@ export const newsList  = (req,res) =>{
 export const deleteNews  = (req,res) =>{
 
     removeNews(req.params).then(()=>{
-        res.status(200).send({
-            message:"News Deleted"
-        })
+        res.redirect("/admin/newsList")
     },()=>{
         res.status(500).send({
             error:"Internal Server Error"
