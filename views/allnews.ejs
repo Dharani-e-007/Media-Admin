@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News</title>
+</head>
+<body>
+
+   <h1>All news into our database are :</h1>
+	<table>
+		 <tr>
+    <th>Title</th>
+    <th>Description</th>
+    <th>Published At</th>
+	<th>Edit</th>
+	 <th>Delete</th>
+  </tr>
+   <% for(var i=0; i < news.length; i++) { %>
+        <tr>
+          <td><%= news[i].title %></td>
+          <td><%= news[i].description %></td>
+		  <td><%= news[i].publishedAt %></td>
+			<td><button><a href="/admin/editNews/<%= news[i]._id %>" >Edit</a></button></td>
+		 <td><button><a href="/admin/deleteNews/<%= news[i]._id %>" >Delete</a></button></td>
+        </tr>
+     <% } %>
+    </table>
+</body>
+</html>

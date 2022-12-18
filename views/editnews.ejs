@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit News</title>
+</head>
+<body>
+
+   <h1>Edit News :</h1>
+ <form>
+ <input type="text" style="width:40%" value="<%= selectedNews.title %>" name="title" placeholder="title..." required><br><br>
+ <input type="text" style="width:40%" value="<%= selectedNews.description %>" name="description" placeholder="description..." required><br><br>
+ <input type="text" style="width:40%" value="<%= selectedNews.url %>" name="url" placeholder="url..." required><br><br>
+ <input type="text" style="width:40%" value="<%= selectedNews.urlToImage %>" name="urlToImage" placeholder="urlToImage..." required><br><br>
+ <input type="date" style="width:40%" value="<%= selectedNews.publishedAt %>" name="publishedAt" placeholder="publishedAt..." required> <br><br>
+ <input type="submit" value="Update">
+ </form>
+</body>
+</html>
