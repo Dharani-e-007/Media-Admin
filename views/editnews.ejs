@@ -8,17 +8,24 @@
 </head>
 <body>
  <div>
+	   <div>
+		  <span>user name : </span><b> <%= user.name %>  </b>
+		   <button><a href="/admin/signOut" >Sign out</a> </button>
+	   </div>
+	   <br><br>
+	    <div>
 	   <button><a href="/admin/newsForm" >News Form</a> </button>
 	   <button> <a href="/admin/newsList" >News List </a></button>
+	   </div>
 	</div>
 	
    <h1>Edit News :</h1>
  <form>
- <input type="text" style="width:40%" value="<%= selectedNews.title %>" name="title" placeholder="title..." required><br><br>
- <input type="text" style="width:40%" value="<%= selectedNews.description %>" name="description" placeholder="description..." required><br><br>
- <input type="text" style="width:40%" value="<%= selectedNews.url %>" name="url" placeholder="url..." required><br><br>
- <input type="text" style="width:40%" value="<%= selectedNews.urlToImage %>" name="urlToImage" placeholder="urlToImage..." required><br><br>
- <input type="date" style="width:40%" value="<%= selectedNews.publishedAt %>" name="publishedAt" placeholder="publishedAt..." required> <br><br>
+ <input type="text" style="width:40%" value="<%= selectedNews.title %>" name="title" placeholder="Title..." required><br><br>
+ <input type="text" style="width:40%" value="<%= selectedNews.description %>" name="description" placeholder="Description..." required><br><br>
+ <input type="text" style="width:40%" value="<%= selectedNews.url %>" name="url" placeholder="URL..." required><br><br>
+ <input type="text" style="width:40%" value="<%= selectedNews.urlToImage %>" name="urlToImage" placeholder="URL To Image..." required><br><br>
+ <input type="date" style="width:40%" value="<%= selectedNews.publishedAt %>" name="publishedAt" placeholder="Published At..." required> <br><br>
  <input type="submit" value="Update">
  </form>
 </body>

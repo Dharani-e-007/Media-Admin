@@ -9,8 +9,15 @@
 </head>
 <body>
    <div>
+	   <div>
+		  <span>user name : </span><b> <%= user.name %>  </b>
+		   <button><a href="/admin/signOut" >Sign out</a> </button>
+	   </div>
+	   <br><br>
+	    <div>
 	   <button><a href="/admin/newsForm" >News Form</a> </button>
 	   <button> <a href="/admin/newsList" >News List </a></button>
+	   </div>
 	</div>
    <h1>All news  :</h1>
 		<%if (news && news.length >0){ %>

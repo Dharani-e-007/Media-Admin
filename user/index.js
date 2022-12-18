@@ -1,11 +1,13 @@
 import Express from "express"
-import { login, register, deleteAccount, isAuthenticated , allUsers , addNews, newsList , deleteNews , editNews} from "./user.controller.js"
+import { login, register, deleteAccount, isAuthenticated , allUsers , addNews, newsList 
+		, deleteNews , editNews , signOut} from "./user.controller.js"
 
 const Router = Express.Router()
 
 
 Router.post("/register", register)
 Router.post("/login", login )
+Router.get("/signOut" , isAuthenticated  , signOut )
 Router.delete("/deleteaccount",isAuthenticated,  deleteAccount)
 Router.get("/all", isAuthenticated ,  allUsers)
 
@@ -13,6 +15,7 @@ Router.post("/addNews" , isAuthenticated , addNews )
 Router.get("/newsList" , isAuthenticated , newsList )
 Router.get("/deleteNews/:id" , isAuthenticated , deleteNews )
 Router.get("/editNews/:id" , isAuthenticated  , editNews )
+
 
 export default Router
 

@@ -6,6 +6,7 @@ let  app = Express()
 const __dirname = path.resolve()
 let token = ''
 let  allNewsList = {}
+let currentUser = {}
 export const register = (req,res)=>{
    createUser(req.body).then((result)=>{
         res.status(200).send({
@@ -40,6 +41,7 @@ export const login = (req,res)=>{
 	
     findUser(req.body).then((result)=>{
          token = createToken({email:req.body.email})
+	    currentUser = result
         res.set("Auhtorization", token)
 		res.redirect("/admin/newsForm")
     }).catch((err)=>{
@@ -85,7 +87,8 @@ export const newsList  = (req,res) =>{
     listAllNews(req.body).then((result)=>{
 		allNewsList = result;
 		res.render("allnews",{
-		news:result
+		news:result ,
+		user: currentUser
     })
     },()=>{
         res.status(500).send({
@@ -107,5 +110,12 @@ export const deleteNews  = (req,res) =>{
 
 export const editNews  = (req,res) =>{
 	let selectedNews = allNewsList.find(news => news._id == req.params.id);
-	res.render("editnews" , {selectedNews:selectedNews})
+	res.render("editnews" , {
+		selectedNews:selectedNews ,
+		user: currentUser })
+}
+export const signOut  = (req,res) =>{
+	  token = ''
+     currentUser = {}
+	res.redirect("/")
 }

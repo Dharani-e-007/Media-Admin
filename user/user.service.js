@@ -24,12 +24,13 @@ export let createUser = (data) => {
 export let findUser = (data) => {
     return new Promise((resolve, reject) => {
 		 var query = { email: data.email }
-        Usermodel.findOne(query).then((result) => {
-            if (result) {
-                bcrypt.compare(data.password, result.password, (err, result) => {
+        Usermodel.findOne(query).then((response) => {
+		
+            if (response) {
+                bcrypt.compare(data.password, response.password, (err, result) => {
                     // result == true
                     if (result) {
-                        resolve()
+                        resolve(response)
                     }
                     else {
                         reject()
