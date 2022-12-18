@@ -7,12 +7,12 @@ const Router = Express.Router()
 Router.post("/register", register)
 Router.post("/login", login )
 Router.delete("/deleteaccount",isAuthenticated,  deleteAccount)
-Router.get("/all", allUsers)
+Router.get("/all", isAuthenticated ,  allUsers)
 
 Router.post("/addNews" , isAuthenticated , addNews )
-Router.get("/newsList"  , newsList )
-Router.get("/deleteNews/:id"  , deleteNews )
-Router.get("/editNews/:id"  , editNews )
+Router.get("/newsList" , isAuthenticated , newsList )
+Router.get("/deleteNews/:id" , isAuthenticated , deleteNews )
+Router.get("/editNews/:id" , isAuthenticated  , editNews )
 
 export default Router
 

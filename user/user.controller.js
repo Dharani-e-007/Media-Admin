@@ -107,6 +107,5 @@ export const deleteNews  = (req,res) =>{
 
 export const editNews  = (req,res) =>{
 	let selectedNews = allNewsList.find(news => news._id == req.params.id);
-	console.log(selectedNews);
-     res.render("editnews" , {selectedNews:selectedNews})
+	res.render("editnews" , {selectedNews:selectedNews})
 }
