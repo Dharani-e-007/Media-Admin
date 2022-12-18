@@ -1,6 +1,6 @@
 
 import Express from "express"
-import UserRoutes from "./admin/user/index.js"
+import UserRoutes from "./user/index.js"
 const Router = Express.Router()
 
 Router.use("/admin", UserRoutes)

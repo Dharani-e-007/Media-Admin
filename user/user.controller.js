@@ -1,4 +1,4 @@
-import { createToken, verifyToken } from "../../auth.js";
+import { createToken, verifyToken } from "../auth.js";
 import { createUser, findUser, removeUser , listAll , createNews , listAllNews , removeNews} from "./user.service.js";
 import Express from "express"
 import path  from 'path';
