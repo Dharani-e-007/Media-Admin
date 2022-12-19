@@ -1,6 +1,6 @@
 import Express from "express"
 import { login, register, deleteAccount, isAuthenticated , allUsers , addNews, newsList 
-		, deleteNews , editNews , signOut} from "./user.controller.js"
+		, deleteNews , editNewsPage , signOut , updateNews} from "./user.controller.js"
 
 const Router = Express.Router()
 
@@ -14,12 +14,8 @@ Router.get("/all", isAuthenticated ,  allUsers)
 Router.post("/addNews" , isAuthenticated , addNews )
 Router.get("/newsList" , isAuthenticated , newsList )
 Router.get("/deleteNews/:id" , isAuthenticated , deleteNews )
-Router.get("/editNews/:id" , isAuthenticated  , editNews )
-
+Router.get("/editNewsPage/:id" , isAuthenticated  , editNewsPage )
+Router.post("/updateNews" , isAuthenticated , updateNews )
 
 export default Router
 
-
-// middleware vs endpoint function
-
-// midlleware has req,res,next where as end point has req,res only

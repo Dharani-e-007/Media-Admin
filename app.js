@@ -28,7 +28,7 @@ app.get("/", (req, res) => {
 app.get("/admin/newsForm", (req, res) => {
  res.sendFile(__dirname + "/newsForm.html");
 })
-app.listen(Port,function(){
+app.listen(Port,() => {
     console.log("Server is listenig on" , Port)
 })
 

@@ -47,9 +47,9 @@ export let findUser = (data) => {
 }
 
 export let removeUser = (data) => {
-    return new Promise(function (resolve, reject) {
+    return new Promise( (resolve, reject) => {
         var query = { email: data.email }
-        Usermodel.deleteOne(query).then(function (result) {
+        Usermodel.deleteOne(query).then( (result) => {
             console.log("Result of user delete operation", result)
             if (result.deletedCount) {
                 resolve()
@@ -57,20 +57,20 @@ export let removeUser = (data) => {
             else {
                 reject()
             }
-        }).catch(function (error) {
+        }).catch( (error) => {
             reject()
             console.log("Error in use delete operation", error)
         })
     })
 }
 export let listAll = (data) => {
-	return new Promise(function (resolve, reject) {
+	return new Promise( (resolve, reject) => {
         var query = { }
-        Usermodel.find(query).then(function (result) {
+        Usermodel.find(query).then( (result) => {
             if (result) {
                 resolve(result)
             }
-        }, function (error) {
+        },  (error) => {
             reject()
         })
 
@@ -92,13 +92,13 @@ export let createNews = (data) => {
 }
 
 export let listAllNews = (data) => {
-	return new Promise(function (resolve, reject) {
+	return new Promise( (resolve, reject) => {
         var query = { }
-        Newsmodel.find(query).then(function (result) {
+        Newsmodel.find(query).then( (result) => {
             if (result) {
                 resolve(result)
             }
-        }, function (error) {
+        },  (error) => {
             reject()
         })
 
@@ -106,10 +106,10 @@ export let listAllNews = (data) => {
 }
 
 export let removeNews = (data) => {
-    return new Promise(function (resolve, reject) {
+    return new Promise( (resolve, reject) => {
         var query = { id: data.id }
 		
-        Newsmodel.deleteOne(query).then(function (result) {
+        Newsmodel.deleteOne(query).then( (result) => {
             console.log("Result of news delete operation", result)
             if (result.deletedCount) {
                 resolve()
@@ -117,9 +117,26 @@ export let removeNews = (data) => {
             else {
                 reject()
             }
-        }).catch(function (error) {
+        }).catch( (error) => {
             reject()
             console.log("Error in use delete operation", error)
+        })
+    })
+}
+
+export let newsUpdate = (data , id) => {
+	
+    return new Promise((resolve, reject) => {
+         let query = {_id:id}
+         let updateQuery = {$set:data}
+        Newsmodel.updateOne(query , updateQuery).then( (result) => {
+			 if(result.modifiedCount) {
+			   resolve()
+		   } else {
+			    reject()  
+		   } 
+        },  (error) => {
+            reject()
         })
     })
 }
