@@ -9,13 +9,16 @@
 <body>
  <div>
 	   <div>
-		  <span>user name : </span><b> <%= user.name %>  </b>
-		   <button><a href="/admin/signOut" >Sign out</a> </button>
+		  <span>User Name : </span><b> <%= user.name %>  </b>
 	   </div>
-	   <br><br>
+	    <div>
+		  <span>Email : </span><b> <%= user.email %>  </b>
+	   </div>
+	   <br>
 	    <div>
 	   <button><a href="/admin/newsForm" >News Form</a> </button>
 	   <button> <a href="/admin/newsList" >News List </a></button>
+	   <button><a href="/admin/signOut" >Sign out</a> </button>
 	   </div>
 	</div>
 	
