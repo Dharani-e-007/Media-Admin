@@ -13,7 +13,7 @@ app.set("view engine","ejs")
 app.use(BodyParser.json())
 app.use(BodyParser.urlencoded({ extended: true }))
 
-// for parsing multipart/form-data
+
 app.use(upload.array()); 
 app.use(Express.static('public'))
 
@@ -23,10 +23,10 @@ app.use(Router)
 const __dirname = path.resolve();
 
 app.get("/", (req, res) => {
- res.sendFile(__dirname + "/index.html");
+ res.sendFile(__dirname + "/template/login.html");
 })
 app.get("/admin/newsForm", (req, res) => {
- res.sendFile(__dirname + "/newsForm.html");
+ res.sendFile(__dirname + "/template/newsForm.html");
 })
 app.listen(Port,() => {
     console.log("Server is listenig on" , Port)

@@ -9,6 +9,6 @@ let UserSchema = new Mongoose.Schema({
     date:{type:Date,default : new Date()}
 })
 
-let Usermodel = Mongoose.model("admin",UserSchema)
+let Usermodel = Mongoose.model("dharani-media-admin",UserSchema)
 
 export default Usermodel

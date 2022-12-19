@@ -107,9 +107,8 @@ export let listAllNews = (data) => {
 
 export let removeNews = (data) => {
     return new Promise( (resolve, reject) => {
-        var query = { id: data.id }
-		
-        Newsmodel.deleteOne(query).then( (result) => {
+        var query = { _id: data.id }
+		Newsmodel.deleteOne(query).then( (result) => {
             console.log("Result of news delete operation", result)
             if (result.deletedCount) {
                 resolve()

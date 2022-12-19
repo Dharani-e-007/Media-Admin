@@ -8,6 +8,6 @@ let NewsSchema = new Mongoose.Schema({
     publishedAt:{type:String,required:true}
 })
 
-let Newsmodel = Mongoose.model("news",NewsSchema)
+let Newsmodel = Mongoose.model("dharani-media-news",NewsSchema)
 
 export default Newsmodel
