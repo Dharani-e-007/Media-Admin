@@ -95,6 +95,7 @@ export let listAllNews = (data) => {
 	return new Promise( (resolve, reject) => {
         var query = { }
         Newsmodel.find(query).then( (result) => {
+          
             if (result) {
                 resolve(result)
             }
@@ -124,10 +125,11 @@ export let removeNews = (data) => {
 }
 
 export let newsUpdate = (data , id) => {
-	
+	data.date = new Date();
     return new Promise((resolve, reject) => {
          let query = {_id:id}
          let updateQuery = {$set:data}
+       
         Newsmodel.updateOne(query , updateQuery).then( (result) => {
 			 if(result.modifiedCount) {
 			   resolve()
@@ -135,6 +137,7 @@ export let newsUpdate = (data , id) => {
 			    reject()  
 		   } 
         },  (error) => {
+          
             reject()
         })
     })

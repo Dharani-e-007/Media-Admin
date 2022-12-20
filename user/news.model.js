@@ -5,7 +5,8 @@ let NewsSchema = new Mongoose.Schema({
     description:{type:String,required:true},
     url:{type:String,required:true}, 
 	urlToImage:{type:String,required:true},
-    publishedAt:{type:String,required:true}
+    publishedAt:{type:String,required:true},
+    date:{type:Date,default : new Date()}
 })
 
 let Newsmodel = Mongoose.model("dharani-media-news",NewsSchema)
